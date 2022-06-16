@@ -6,7 +6,7 @@ export const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className='w-100 mt-auto dark p-4 page-footer'>
+    <footer className='bg-dark text-light mb-4 py-3 align-center'>
       <div className='container text-center mb-5'>
         {location.pathname !== '/' && (
           <button className='btn btn-dark mb-3' onClick={() => navigate(-1)}>
