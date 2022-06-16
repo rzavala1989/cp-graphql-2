@@ -31,9 +31,11 @@ const httpLink = createHttpLink({
 });
 
 //in order attach our JWT token to every request as an authorization header
+
 const authLink = setContext((_, { headers }) => {
   //get auth token from local storage
   const token = localStorage.getItem('id_token');
+
   //return the headers to our App context so httpLink can read them
   return {
     headers: {
@@ -47,7 +49,7 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   //allows client to execute authLink middleware prior to making request to our protected GraphQL API
   link: authLink.concat(httpLink),
-  cache: InMemoryCache,
+  cache: new InMemoryCache(),
   onError: (e) => console.log(e),
 });
 

@@ -76,7 +76,7 @@ const resolvers = {
       const apiProjects = async () => {
         try {
           const projectResponse = await axios.get(
-            `https://api.github.com/users/${githubUser}/starred`
+            `https://api.github.com/users/${githubUser}/repos`
           );
 
           const projectData = projectResponse.data;
