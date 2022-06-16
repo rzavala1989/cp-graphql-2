@@ -9,7 +9,7 @@ const typeDefs = gql`
     avatar: String
     url: String
     location: String
-    created_at: String
+    member_since: String
     email: String!
     projects: [Project]
     bio: String
