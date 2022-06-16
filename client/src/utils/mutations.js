@@ -39,3 +39,39 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_SWIPE = gql`
+  mutation addSwipe($githubUser: String!, $githubUser2: String!) {
+    addSwipe(githubUser: $githubUser, githubUser2: $githubUser2) {
+      githubUser
+      swipeRight {
+        githubUser2
+      }
+    }
+  }
+`;
+
+export const ADD_MATCH = gql`
+  mutation addMatch($githubUser: String!, $githubUser2: String!) {
+    addMatch(githubUser: $githubUser, githubUser2: $githubUser2) {
+      githubUser
+      match {
+        githubUser2
+      }
+    }
+  }
+`;
+
+export const addProject = gql`
+  mutation addProject($name: String!, $githubUser: String!) {
+    addProject(name: $name, githubUser: $githubUser) {
+      name
+      description
+      repo_link
+      language {
+        count
+        language
+      }
+    }
+  }
+`;
