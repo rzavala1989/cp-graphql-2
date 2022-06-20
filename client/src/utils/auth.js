@@ -7,17 +7,12 @@ class AuthService {
 
   loggedIn() {
     const token = this.getToken();
-    //return true if token is present/valid AND is not expried
-    if (token && !this.isTokenExpired(token)) {
-      return true;
-    } else {
-      return false;
-    }
+    return token && !this.isTokenExpired(token) ? true : false;
   }
 
-  isTokenExpired() {
-    const decoded = decode(this.token);
-    if (decoded.exp < Date.now / 1000) {
+  isTokenExpired(token) {
+    const decoded = decode(token);
+    if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem('id_token');
       return true;
     }
@@ -25,13 +20,12 @@ class AuthService {
   }
 
   getToken() {
-    //reminder to have this getItem match from App.js
     return localStorage.getItem('id_token');
   }
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    //once logged, navigate to home page
+    // return (<Navigate to='/'></Navigate>);
     window.location.assign('/');
   }
 
@@ -41,4 +35,4 @@ class AuthService {
   }
 }
 
-export default AuthService;
+export default new AuthService();

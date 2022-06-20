@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Dashboard } from './Dashboard';
 import '../index.css';
+import logo from '../../src/assets/images/git-match-footer.png';
 
 export const Home = () => {
   let loggedIn = localStorage.getItem('id_token');
@@ -9,11 +10,13 @@ export const Home = () => {
   return (
     //if logged in, display dashboard, if not logged in, display Home/Splash page
     <main>
-      <div className='flex-row justify-center'>
+      <div>
         <div
-          className='col-12 col-md-10'
+          className='col-12 col-md-10 mb-3 p-3 d-flex flex-row justify-content-center'
           style={{ border: '1px solid #1a1a1a' }}
-        ></div>
+        >
+          <img src={logo} />
+        </div>
         <div className='col-12 col-md-8'>
           {loggedIn ? (
             <div>

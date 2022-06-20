@@ -46,7 +46,7 @@ export const Login = () => {
             ) : (
               <form onSubmit={handleSubmit}>
                 <input
-                  className='form-input'
+                  className='form-input form-control w-50 mb-3'
                   placeholder='Your Github Username'
                   name='githubUser'
                   type='user'
@@ -54,7 +54,7 @@ export const Login = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className='form-input'
+                  className='form-input form-control w-50 mb-3'
                   placeholder='Enter password'
                   name='password'
                   type='password'

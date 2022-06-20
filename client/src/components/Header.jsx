@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
+
 import AuthService from '../utils/auth';
 import logo from '../assets/images/git-match-nav.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,12 +14,12 @@ export const Header = () => {
     e.preventDefault();
     //TODO log out a logged in user
     //AuthService.logout()
-    console.log('logged out!');
+    AuthService.logout();
   };
 
   return (
     <header className='dark text-light mb-4 py-3 align-center'>
-      <Navbar bg='dark' expand='lg'>
+      <Navbar expand='lg'>
         <Container>
           <Navbar.Brand>
             <Link to='/' className='text-light'>
@@ -31,11 +32,11 @@ export const Header = () => {
               <p className='m-0'>Developer Community Hub</p>
             </div>
           </Nav>
-          {/* <Nav>
+          <Nav>
             {AuthService.loggedIn() ? (
               <>
                 <Nav>
-                  <span>Hello, {AuthService.getProfile().data.name}</span>
+                  <span>Hello, {AuthService.getProfile().data.githubUser}</span>
                 </Nav>
                 <Nav>
                   <button className='btn btn-lg m-2 gradient' onClick={logout}>
@@ -58,7 +59,7 @@ export const Header = () => {
             ) : (
               <></>
             )}
-          </Nav> */}
+          </Nav>
         </Container>
       </Navbar>
     </header>
